@@ -1,0 +1,23 @@
+.content {
+    width: 600px;
+    height: 300px;
+    /*border: 4px solid ;*/
+    padding: 30px;
+    overflow: hidden;
+}
+
+.content img {
+    margin-right: 15px;
+    float: left;
+}
+
+p{ word-break: break-all}
+
+
+.personal-calendar{
+  width: 700px;
+  height: 300px;
+  margin-bottom: 15px;
+  display: block;
+  overflow: auto;
+}
