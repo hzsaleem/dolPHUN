@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
 }
 
 .App-logo {
@@ -16,6 +20,11 @@
 
 .App-title {
   font-size: 1.5em;
+}
+
+.App .btn-format {
+  justify-content: flex-end;
+  display: flex;
 }
 
 .App-intro {
@@ -82,4 +91,8 @@ p{ word-break: break-all}
   margin-bottom: 15px;
   display: block;
   overflow: auto;
+}
+
+.hide-div {
+  display: none;
 }
