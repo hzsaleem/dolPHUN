@@ -61,24 +61,6 @@ class Profile extends React.Component {
 
       </table>
     </div>
-
-
-
-    <div className="btn-group btn-group-toggle" data-toggle="buttons">
-      <label className="btn btn-primary">
-
-        <span>All Events</span>
-        <span className="fas fa-home"/></label>
-        <label className="btn btn-primary">
-
-      <span>Recommended</span>
-      <span className="fas fa-list-ol"/>
-      </label>
-      <label className="btn btn-primary active">
-      <span>Profile</span>
-      <span className="fas fa-user"/>
-      </label>
-    </div>
   </div>
     );
   }

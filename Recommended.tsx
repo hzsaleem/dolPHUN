@@ -58,6 +58,7 @@ class Recommended extends React.Component {
   </tr>
 </table>
 </div>
+
 </div>
 
 );
