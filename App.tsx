@@ -4,33 +4,63 @@ import Profile from "./Profile";
 import Recommended from "./Recommended";
 
 
+
 // import logo from './logo.svg';
 
 /*interface EventItemData{
   event: string;
   date: string;
   time: string;
+}*/
+
+interface IProfileData{
+  event: string;
+  date: string;
+  time: string;
 }
 
-interface RecommendationState{
+interface IRecData{
+  event: string;
+  date: string;
+  time: string;
+  info: string;
+  interest: string;
+}
+
+
+/*interface RecommendationState{
   items: Array<EventItemData>;
   newItemEvent: string;
   newItemDate: string;
   newItemTime: string;
 }*/
 
+
 interface InterfaceAppState {
   showRecommendation: boolean;
   showProfile: boolean;
   showAll: boolean;
+  // recList: Array<RecData>;
+  profileList: Array<IProfileData>;
+  recList: Array<IRecData>;
+
 }
 
-
 class App extends React.Component<{}, InterfaceAppState> {
-  constructor(p: any) {
-    super(p);
-    this.state = { showRecommendation: true, showProfile: false, showAll: false }
-  }
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      showRecommendation: true,
+      showProfile: false,
+      showAll: false,
+      profileList: [{"event": "REO Speedwagon concert", "date": "July 31st", "time": "7:00 pm"},
+      {"event": "Tulip Festival", "date": "Aug 1st", "time": "6:00 pm"},
+      {"event": "Monthly Book Club", "date": "Aug 2nd", "time": "8:00 pm"}],
+      recList: [{"event": "REO Speedwagon concert", "date": "July 31st", "time": "7:00 pm", "info": '<button button="type" class="btn">Hello</button>', "interest": "Music"},
+      {"event": "Tulip Festival", "date": "Aug 1st", "time": "6:00 pm", "info": '<button button="type" class="btn">Hello</button>', "interest": "Travel"},
+      {"event": "Monthly Book Club", "date": "Aug 2nd", "time": "8:00 pm", "info": '<button button="type" class="btn">Hello</button>', "interest": "Books"}]
+  };
+}
 
   /*public onToggle = () => {
     this.setState({showRecommendation: !this.state.showRecommendation});
@@ -48,12 +78,12 @@ class App extends React.Component<{}, InterfaceAppState> {
     this.setState({ showRecommendation: false, showProfile: true, showAll: false });
   }
 
-
   public render() {
+    //var data = this.state.profileList;
 
     return (
       <div className="App">
-        <div>
+
           <div className="btn-group btn-group-toggle" data-toggle="buttons">
             <label className="btn btn-primary" onClick={this.onAll}>
               <span> All Events</span>
@@ -67,11 +97,8 @@ class App extends React.Component<{}, InterfaceAppState> {
               <span className="fas fa-user" />
             </label>
           </div>
-
-          {this.state.showAll ? <Recommended /> : (this.state.showRecommendation ? <Recommended /> : <Profile />)}
-        </div>
-      
-      </div>
+          {this.state.showAll ? <Recommended list={this.state.recList}/> : (this.state.showRecommendation ? <Recommended list={this.state.recList} /> : <Profile list={this.state.profileList}/>)}
+           </div>
     );
   }
 }

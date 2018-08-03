@@ -8,18 +8,34 @@ import './App.css';
   date: string;
   time: string;
 }
+*/
+interface ProfileData{
+  event: string;
+  date: string;
+  time: string;
+}
 
-interface RecommendationState{
-  items: Array<EventItemData>;
-  newItemEvent: string;
-  newItemDate: string;
-  newItemTime: string;
-}*/
+interface ProfileProps{
+  list: Array<ProfileData>;
+
+}
 
 
+class Profile extends React.Component<ProfileProps> {
+  constructor(props: ProfileProps){
+    super(props);
+  }
 
-class Profile extends React.Component {
+  TableRow = (row: ProfileData) => (
+    <tr>
+      <td key={row.event}>{row.event}</td>
+      <td key={row.date}>{row.date}</td>
+      <td key={row.time}>{row.time}</td>
+    </tr>
+)
+
   public render() {
+    var data = this.props.list;
     return (
       <div className="container">
         <div>
@@ -36,30 +52,19 @@ class Profile extends React.Component {
         </div>
         <div className="personal-calendar">
           <h3>Attending</h3>
-          <table className="table table-responsive">
-            <thead>
-              <th>Event Name</th>
-              <th>Date</th>
-              <th>Time</th>
-            </thead>
-            <tr>
-              <td>REO Speedwagon Concert</td>
-              <td>July 31st</td>
-              <td>7:00 pm</td>
-            </tr>
-            <tr>
-              <td>REO Speedwagon Concert</td>
-              <td>July 31st</td>
-              <td>7:00 pm</td>
-            </tr>
-            <tr>
-              <td>REO Speedwagon Concert</td>
-              <td>July 31st</td>
-              <td>7:00 pm</td>
-            </tr>
+          <table className="table table-hover table-center">
+
+              <thead>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Time</th>
+              </thead>
+              {data.map(row =>
+                this.TableRow(row)
+              )}
+            </table>
 
 
-          </table>
         </div>
       </div>
     );

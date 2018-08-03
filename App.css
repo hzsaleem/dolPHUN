@@ -91,6 +91,12 @@ p{ word-break: break-all}
   margin-bottom: 15px;
   display: block;
   overflow: auto;
+  margin: 0px auto;
+}
+
+.table-center{
+  height: 250px;
+  text-align: left;
 }
 
 .hide-div {
